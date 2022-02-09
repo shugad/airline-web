@@ -91,9 +91,9 @@ def get_duration(hours, minutes):
 
 def get_prediction(model, x):
     if model == 'gbr':
-        model_loaded = pickle.load(open(f'{BASE_DIR}\models\gbr.sav', 'rb'))
+        model_loaded = pickle.load(open(f'{BASE_DIR}\gbr.sav', 'rb'))
     elif model == 'catboost':
-        model_loaded = pickle.load(open(f'{BASE_DIR}\models\catboost.sav', 'rb'))
+        model_loaded = pickle.load(open(f'{BASE_DIR}\catboost.sav', 'rb'))
     pred = model_loaded.predict([x])
     return np.round(inv_boxcox(pred, ALPHA)[0], 2)
 
