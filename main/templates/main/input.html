@@ -1,0 +1,121 @@
+{% extends 'main/layout.html' %}
+
+{% block title %} India domestic flights {% endblock %}
+{% block content %}
+<div class="main-class">
+    <h1> India domestic flights: airfare prediction </h1>
+<form name="main_form" method="post" class="input-form">
+    {% csrf_token %}
+    <div>
+        <label for="airline"><b>Choose airline:</b></label>
+        <input type="text" id="airline" name="user_airline" list="airline_name" class="form-control"  required="required">
+        <datalist id="airline_name">
+            <option value="Air Asia">
+            <option value="Air India">
+            <option value="GoAir">
+            <option value="IndiGo">
+            <option value="Jet Airways">
+            <option value="Jet Airways Business">
+            <option value="Multiple carriers">
+            <option value="Multiple carriers premium economy">
+            <option value="SpiceJet">
+            <option value="TruJet">
+            <option value="Vistara">
+            <option value="Vistara premium economy">
+        </datalist>
+    </div>
+    <div>
+        <label for="date"><b>Date of journey:</b></label>
+        <input type="date" id="date" name="user_date" class="form-control"  required="required">
+    </div>
+    <div>
+        <label for="hours"><b>Duration in hours:</b></label>
+        <input type="number" id="hours" name="user_hours" min="0" max="7" class="form-control" placeholder="Enter value from 0 to 7" required="required">
+    </div>
+    <div>
+        <label for="minutes"><b>Duration in minutes:</b></label>
+        <input type="number" id="minutes" name="user_minutes" min="0" max="60" class="form-control" required="required">
+    </div>
+    <div>
+        <label for="stops"><b>Total stops during the flight:</b></label>
+        <input type="number" id="stops" name="user_total_stops" min="0" max="4" class="form-control" placeholder="Enter value from 0 to 4" required="required">
+        <datalist>
+            <option value="0">
+            <option value="1">
+            <option value="2">
+            <option value="3">
+            <option value="4">
+        </datalist>
+    </div>
+    <div>
+        <label for="departure_time"><b>Preferable departure time of day:</b></label>
+        <input type="text" id="departure_time" name="user_duration_time" list="departure_time_list" class="form-control" required="required">
+        <datalist id="departure_time_list">
+            <option value="Early Morning">
+            <option value="Morning">
+            <option value="Noon">
+            <option value="Eve">
+            <option value="Night">
+            <option value="Late Night">
+        </datalist>
+    </div>
+    <b><p>Will it have long layover?</p></b>
+    <div class="form-check form-check-inline">
+        <label class="form-check-label" for="long_layover_no">No</label>
+        <input class="form-check-input" type="radio" id="long_layover_no" name="user_long_layover" value="No" checked>
+    </div>
+    <div class="form-check form-check-inline">
+        <label class="form-check-label" for="long_layover_yes">Yes</label>
+        <input class="form-check-input" type="radio" id="long_layover_yes" name="user_long_layover" value="Yes">
+    </div>
+    <b><p>Will it be business class?</p></b>
+    <div class="form-check form-check-inline">
+        <label class="form-check-label" for="business_class_no">No</label>
+        <input class="form-check-input" type="radio" id="business_class_no" name="user_business_class" value="No" checked>
+    </div>
+    <div class="form-check form-check-inline">
+        <label class="form-check-label" for="business_class_yes">Yes</label>
+        <input class="form-check-input" type="radio" id="business_class_yes" name="user_business_class" value="Yes">
+    </div>
+    <b><p>Will it have change of airports?</p></b>
+    <div class="form-check form-check-inline">
+        <label class="form-check-label" for="change_airports_no">No</label>
+        <input class="form-check-input" type="radio" id="change_airports_no" name="user_change_airports" value="No" checked>
+    </div>
+    <div class="form-check form-check-inline">
+        <label class="form-check-label" for="change_airports_yes">Yes</label>
+        <input class="form-check-input" type="radio" id="change_airports_yes" name="user_change_airports" value="Yes">
+    </div>
+        <b><p>In-flight meal not included?</p></b>
+    <div class="form-check form-check-inline">
+        <label class="form-check-label" for="meal_no">No</label>
+        <input class="form-check-input" type="radio" id="meal_no" name="user_meal" value="No" checked>
+    </div>
+    <div class="form-check form-check-inline">
+        <label class="form-check-label" for="meal_yes">Yes</label>
+        <input class="form-check-input" type="radio" id="meal_yes" name="user_meal" value="Yes">
+    </div>
+           <b><p>Check-in baggage not included?</p></b>
+    <div class="form-check form-check-inline">
+        <label class="form-check-label" for="baggage_no">No</label>
+        <input class="form-check-input" type="radio" id="baggage_no" name="user_baggage" value="No" checked>
+    </div>
+    <div class="form-check form-check-inline">
+        <label class="form-check-label" for="baggage_yes">Yes</label>
+        <input class="form-check-input" type="radio" id="baggage_yes" name="user_baggage" value="Yes">
+    </div>
+    <div>
+        <input type="submit" class="btn btn-success" value="Get prediction">
+    </div>
+</form>
+</div>
+<script type="text/javascript">
+function validateForm() {
+  var date = document.forms["main_form"]["user_date"].value;
+  if (date == "" ) {
+    alert("Date must be filled out");
+    return false;
+  }
+}
+</script>
+{% endblock %}

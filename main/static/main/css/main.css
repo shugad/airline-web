@@ -1,0 +1,31 @@
+body {
+    background: #f5f5dc;
+}
+
+form {
+    width:300px;
+    margin-left: 40%;
+
+}
+
+.input-form p {
+    margin-bottom:3%;
+}
+
+.main-class {
+    text-align: center;
+    display:block;
+}
+
+.btn-success {
+    margin-top:5%;
+}
+
+.main_form {
+    margin-top:3%;
+}
+
+input {
+    margin-top:1%;
+    margin-bottom:1%
+}

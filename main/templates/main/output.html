@@ -1,0 +1,15 @@
+{% extends 'main/layout.html' %}
+
+{% block title %} India domestic flights {% endblock %}
+{% block content %}
+<div class="main-class">
+    <h1> India domestic flights: airfare prediction </h1>
+    <p class="fs-4"> <b>Airline:</b> {{ airline }} </p>
+    <p class="fs-4">  <b>Date of journey:</b> {{ date }} </p>
+    <p class="fs-4"> <b>Duration of flight:</b> {{ hours }}h {{ minutes }}m </p>
+    <div class="badge bg-primary text-wrap" style="width: 12rem;">
+        <p class="fs-2"> Expected airfare {{ predicted }} ₹</p>
+    </div>
+</div>
+
+{% endblock %}
