@@ -3,6 +3,9 @@ import pickle
 import sklearn
 import catboost
 from scipy.special import inv_boxcox
+import os
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 ALPHA = 0.30550104689624275
 
@@ -88,9 +91,9 @@ def get_duration(hours, minutes):
 
 def get_prediction(model, x):
     if model == 'gbr':
-        model_loaded = pickle.load(open(r'main\models\gbr.sav', 'rb'))
+        model_loaded = pickle.load(open(f'{BASE_DIR}\models\gbr.sav', 'rb'))
     elif model == 'catboost':
-        model_loaded = pickle.load(open(r'main\models\catboost.sav', 'rb'))
+        model_loaded = pickle.load(open(f'{BASE_DIR}\models\catboost.sav', 'rb'))
     pred = model_loaded.predict([x])
     return np.round(inv_boxcox(pred, ALPHA)[0], 2)
 
