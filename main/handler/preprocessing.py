@@ -95,6 +95,6 @@ def get_prediction(model, x):
     return np.round(inv_boxcox(pred, ALPHA)[0], 2)
 
 
-""""def get_final_prediction(X):
-    return np.round((get_prediction('gbr', X) + get_prediction('catboost', X))/2, 2)"""
+def get_final_prediction(X):
+    return np.round((get_prediction('gbr', X) + get_prediction('catboost', X))/2, 2)
 

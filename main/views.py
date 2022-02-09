@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from datetime import datetime
 from .handler.preprocessing import get_group_airline, encode_airline, \
-    encode_season, encode_time_of_day, encode_radio, get_duration, get_prediction
+    encode_season, encode_time_of_day, encode_radio, get_duration, get_final_prediction
 
 
 def home(request):
@@ -39,7 +39,7 @@ def home(request):
         X.append(airline_group)
         X.append(duration)
 
-        predicted = get_prediction('gbr', X)
+        predicted = get_final_prediction(X)
 
         context = {'airline': airline, 'date': date,
                    'hours': hours, 'minutes': minutes,
