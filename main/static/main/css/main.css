@@ -3,8 +3,8 @@ body {
 }
 
 form {
-    width:300px;
-    margin-left: 40%;
+    width:15%;
+    margin-left: 42%;
 
 }
 
@@ -28,4 +28,8 @@ form {
 input {
     margin-top:1%;
     margin-bottom:1%
+}
+
+h1 {
+    text-align:center;
 }
