@@ -6,8 +6,9 @@
 <h1> India domestic flights </h1>
 <div class="main-class">
 <form name="main_form" method="post" class="input-form">
+    <div class="center_div">
     {% csrf_token %}
-    <div>
+    <div class="col-md-12">
         <label for="airline"><b>Choose airline:</b></label>
         <input type="text" id="airline" name="user_airline" list="airline_name" class="form-control"  required="required">
         <datalist id="airline_name">
@@ -25,21 +26,21 @@
             <option value="Vistara premium economy">
         </datalist>
     </div>
-    <div>
+    <div class="col-md-12">
         <label for="date"><b>Date of journey:</b></label>
-        <input type="date" id="date" name="user_date" class="form-control"  required="required">
+        <input type="date" id="date" name="user_date" class="form-control" required="required">
     </div>
-    <div>
+    <div class="col-md-12">
         <label for="hours"><b>Duration in hours:</b></label>
-        <input type="number" id="hours" name="user_hours" min="0" max="7" class="form-control" placeholder="Enter value from 0 to 7" required="required">
+        <input type="number" id="hours" name="user_hours" min="0" max="7" class="form-control" placeholder="Value from 0 to 7" required="required">
     </div>
-    <div>
+    <div class="col-md-12">
         <label for="minutes"><b>Duration in minutes:</b></label>
         <input type="number" id="minutes" name="user_minutes" min="0" max="60" class="form-control" required="required">
     </div>
-    <div>
+    <div class="col-md-12">
         <label for="stops"><b>Total stops during the flight:</b></label>
-        <input type="number" id="stops" name="user_total_stops" min="0" max="4" class="form-control" placeholder="Enter value from 0 to 4" required="required">
+        <input type="number" id="stops" name="user_total_stops" min="0" max="4" class="form-control" placeholder="Value from 0 to 4" required="required">
         <datalist>
             <option value="0">
             <option value="1">
@@ -48,7 +49,7 @@
             <option value="4">
         </datalist>
     </div>
-    <div>
+    <div class="col-md-12">
         <label for="departure_time"><b>Preferable departure time of day:</b></label>
         <input type="text" id="departure_time" name="user_duration_time" list="departure_time_list" class="form-control" required="required">
         <datalist id="departure_time_list">
@@ -60,6 +61,7 @@
             <option value="Late Night">
         </datalist>
     </div>
+        </div>
     <b><p>Will it have long layover?</p></b>
     <div class="form-check form-check-inline">
         <label class="form-check-label" for="long_layover_no">No</label>
@@ -110,6 +112,7 @@
     </div>
 </form>
 </div>
+
 <script type="text/javascript">
 function validateForm() {
   var date = document.forms["main_form"]["user_date"].value;
